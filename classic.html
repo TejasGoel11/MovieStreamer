@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classic Movies</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .header {
+      padding: 20px;
+      text-align: center;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+    .back-to-home {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background-color: #ff007f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      font-size: 1em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .back-to-home:hover {
+      background-color: #ff4da6;
+    }
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      justify-items: center;
+    }
+    .movie-banner {
+      position: relative;
+      cursor: pointer;
+    }
+    .movie-banner img {
+      width: 300px; /* Fixed size for images */
+      height: 300px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .movie-banner:hover img {
+      transform: scale(1.05);
+    }
+    .movie-details {
+      margin-top: 10px;
+      font-size: 0.9em;
+      text-align: center;
+    }
+    /* Neon Glow Buttons */
+    .play-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1em;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      color: white;
+      text-shadow: 0 0 5px white;
+      transition: all 0.3s ease;
+    }
+    .play-button:hover {
+      transform: scale(1.1);
+    }
+    /* Different Neon Styles */
+    .play-button.red {
+      background-color: #ff0040;
+      box-shadow: 0 0 15px #ff0040, 0 0 30px #ff0040, 0 0 45px #ff0040;
+    }
+    .play-button.blue {
+      background-color: #007fff;
+      box-shadow: 0 0 15px #007fff, 0 0 30px #007fff, 0 0 45px #007fff;
+    }
+    .play-button.green {
+      background-color: #00ff40;
+      box-shadow: 0 0 15px #00ff40, 0 0 30px #00ff40, 0 0 45px #00ff40;
+    }
+    .play-button.yellow {
+      background-color: #ffff00;
+      box-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00, 0 0 45px #ffff00;
+    }
+    .play-button.pink {
+      background-color: #ff00ff;
+      box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff, 0 0 45px #ff00ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="back-to-home">Back to Home</a>
+    <h1>Classic Movies</h1>
+  </div>
+  <div class="movie-grid">
+    <div class="movie-banner">
+      <img src="C:\Users\hp\Downloads\moviestreamer\Goosebumps.jpeg" alt="Movie 1">
+      <div class="movie-details">
+        <h3>Goosebumps 1</h3>
+        <a href="https://drive.google.com/file/d/1iLY2jg2NWfYlSu8sHRReDhudzLQu3gtj/view?usp=sharing" class="play-button red" target="_blank">Play Goosebumps 1</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

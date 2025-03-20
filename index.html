@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies & Series Hub</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 250px;
+      background-color: #1a1a1a;
+      padding: 40px 20px; /* Added padding-top to bring text down */
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+      position: fixed;
+      height: 100%;
+      transform: translateX(-250px);
+      transition: transform 0.3s ease;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    .sidebar h2 {
+      text-align: center;
+      color: #ff007f;
+      margin-bottom: 20px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #2a2a2a;
+      transition: background-color 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* Sidebar Toggle Button */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #ff007f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background-color: #ff4da6;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 0;
+      flex-grow: 1;
+      width: 100%;
+      transition: margin-left 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .main-content.with-sidebar {
+      margin-left: 250px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      margin: 20px 0;
+      width: 200px;
+    }
+    .dropdown select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      background-color: #2a2a2a;
+      color: white;
+      border: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    /* Sections for Movies and Series */
+    .section {
+      display: none;
+      margin: 20px 0;
+    }
+    .section.active {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .movie-banner {
+      width: 300px;
+    }
+    .movie-banner img {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .movie-banner:hover img {
+      transform: scale(1.05);
+    }
+    .movie-details {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* Neon Button */
+    .play-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 10px;
+      transition: box-shadow 0.3s, background-color 0.3s;
+    }
+    .play-button:hover {
+      box-shadow: 0 0 20px;
+      color: black;
+    }
+    .play-button.red {
+      background-color: #ff007f;
+      box-shadow: 0 0 10px #ff007f;
+    }
+    .play-button.red:hover {
+      box-shadow: 0 0 20px #ff007f;
+    }
+    .play-button.blue {
+      background-color: #007fff;
+      box-shadow: 0 0 10px #007fff;
+    }
+    .play-button.blue:hover {
+      box-shadow: 0 0 20px #007fff;
+    }
+    .play-button.green {
+      background-color: #00ff7f;
+      box-shadow: 0 0 10px #00ff7f;
+    }
+    .play-button.green:hover {
+      box-shadow: 0 0 20px #00ff7f;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar with Genre List -->
+  <div class="sidebar" id="sidebar">
+    <h2>Genres</h2>
+    <a href="action.html">Action</a>
+    <a href="comedy.html">Comedy</a>
+    <a href="fantasy.html">Fantasy</a>
+    <a href="animation.html">Animation</a>
+    <a href="thriller.html">Thriller</a>
+    <a href="classic.html">Classic</a>
+  </div>
+
+  <!-- Toggle Button -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰ Genres</button>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+    <h1>Welcome to Movies & Series Hub</h1>
+    <p>Select your category and explore the collection!</p>
+
+    <!-- Dropdown for Movies or Series -->
+    <div class="dropdown">
+      <select id="category-select" onchange="toggleCategory()">
+        <option value="movies">Movies</option>
+        <option value="series">Series</option>
+      </select>
+    </div>
+
+    <!-- Movies Section -->
+    <div id="movies-section" class="section active">
+      <div class="movie-banner">
+        <img src="C:\Users\hp\Downloads\moviestreamer\Goosebumps.jpeg" alt="Movie 1">
+        <div class="movie-details">
+          <h3>Goosebumps</h3>
+          <a href="https://drive.google.com/file/d/1r88ph6cD71FlBOleRyRRoTKZnehsd713/view?usp=sharing" class="play-button red" target="_blank">Play Goosebumps</a>
+        </div>
+      </div>
+      <div class="movie-banner">
+        <img src="C:\Users\hp\Downloads\moviestreamer\Harry Potter and the Deathly Hallows Part 1.jpg" alt="Movie 2">
+        <div class="movie-details">
+          <h3>Harry Potter and the Deathly Hallows Part 1</h3>
+          <a href="https://drive.google.com/file/d/1zFCfrlCDwV0xAQZZf3HHykKCE2-TKK-L/view?usp=sharing" class="play-button blue" target="_blank">Play Harry Potter and the Deathly Hallows Part 1</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Series Section -->
+    <div id="series-section" class="section">
+      <div class="movie-banner">
+        <img src="C:\Users\hp\Downloads\moviestreamer\ghostbusters.jpg" alt="Series 1">
+        <div class="movie-details">
+          <h3>Series Name 1</h3>
+          <a href="https://drive.google.com/example" class="play-button green" target="_blank">Play 1</a>
+        </div>
+      </div>
+      <div class="movie-banner">
+        <img src="C:\Users\hp\Downloads\moviestreamer\ghostbusters.jpg" alt="Series 2">
+        <div class="movie-details">
+          <h3>Series Name 2</h3>
+          <a href="https://drive.google.com/example" class="play-button red" target="_blank">Play 2</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const mainContent = document.getElementById('main-content');
+      sidebar.classList.toggle('open');
+      mainContent.classList.toggle('with-sidebar');
+    }
+
+    function toggleCategory() {
+      const selectedCategory = document.getElementById('category-select').value;
+      document.getElementById('movies-section').classList.remove('active');
+      document.getElementById('series-section').classList.remove('active');
+
+      if (selectedCategory === 'movies') {
+        document.getElementById('movies-section').classList.add('active');
+      } else {
+        document.getElementById('series-section').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
